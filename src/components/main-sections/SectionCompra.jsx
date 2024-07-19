@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import './SectionCompra.css'
 import { FiltroCompra } from './FiltroCompra'
 import { CompraVenta } from './CompraVenta'
@@ -6,6 +6,7 @@ import { DesplegableMarcas } from './DesplegableMarcas'
 import { DesplegableKmPrecio } from './DesplegableKmPrecio'
 import { FondoImagen } from '../fondo-img/FondoImagen'
 import { useNavigate } from 'react-router-dom'
+import { IdUsuarioContext } from '../../App'
 
 //Contexto para pasar las funciones que gestionan el texto de los filtros y la visibilidad de los desplegables 
 export const TextoFiltroContext = createContext()
@@ -24,6 +25,8 @@ export const SectionCompra = () => {
     const [textoKm, setTextoKm] = useState('')
     //Estado para modificar el texto del filtro de precios
     const [textoPrecio, setTextoPrecio] = useState('')
+
+    const {idUser} = useContext(IdUsuarioContext)
 
     const navigate = useNavigate()
 
@@ -121,8 +124,13 @@ export const SectionCompra = () => {
     }
 
     const mostrarAnuncios = () => {
-        const mensaje = textoMarca
-        navigate('/anuncios', { state: {mensaje}})
+        if(idUser === ''){
+            navigate('/login')
+        }else{
+            const mensaje = textoMarca
+            navigate('/anuncios', { state: {mensaje}})
+        }
+        
     }
 
     //Efecto para establecer el texto inicial de los filtros
