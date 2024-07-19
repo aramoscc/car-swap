@@ -41,7 +41,13 @@ export const Header = () => {
     }
 
     const goToVender = () => {
-        navigate('/vender')
+
+        if(isLogged){
+            navigate('/vender')
+        }else{
+            navigate('/login')
+        }
+        
         if(isMenuVisible){
             toggleMenu()
         }
