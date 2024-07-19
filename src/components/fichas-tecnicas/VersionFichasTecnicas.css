@@ -1,0 +1,77 @@
+.Versiones-ul{
+    width: 100%;
+    max-width: 800px;
+}
+
+.Version{
+    padding: 1rem;
+}
+.Version-wrapper{
+}
+.Version-h1{
+    font-weight: bold;
+    font-size: larger;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: rgb(71, 106, 133);
+    color: rgb(238, 238, 238);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.Version-ul{
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: rgb(71, 106, 133);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 2px 0;
+}
+
+.Categoria{
+    background-color: rgb(241, 241, 241);
+    border-radius: 3px;
+    margin: 2px 4px;
+}
+.Categoria-h2{
+    font-size: large;
+    padding: 1rem;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+}
+.isVisibleCat{
+    border-bottom: 1px solid black;
+}
+.Categoria-ul{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .8rem;
+    overflow: hidden;
+    transition: max-height 1s ease;
+    list-style: none;
+}
+.Spec{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 1.1rem;
+}
+.Spec-nombre{
+
+}
+.Spec-valor{
+
+}
+
+.subspec{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .5rem;
+    align-items: flex-end;
+    width: 50%;
+}
+.subspec-nombre{
+    text-align: right;
+}
+.subspec-valor{
+    text-align: right;
+}

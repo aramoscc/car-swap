@@ -1,0 +1,41 @@
+
+.Publicar{
+    max-width: 1200px;
+    border-top: 1px solid black;
+}
+.Publicar-h1{
+    padding: 2rem 2rem 3rem;
+    font-size: xx-large;
+    font-weight: bold;
+    line-height: 2.5rem;
+}
+.Publicar-form{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.2rem;
+    padding-bottom: 4rem;
+}
+.Publicar-h2{
+    font-size: larger;
+    
+}
+.Publicar-input{
+    background-color: rgb(234, 243, 243);
+    width: 100%;
+    padding: .8rem;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: 1px solid white;
+    z-index: 1;
+}
+.Publicar-input:hover{
+    background-color: rgba(241, 247, 247, 0.7);
+    border: 1px solid rgb(19, 54, 80, 0.5);
+}
+.Publicar-selection-wrapper{
+    position: relative;
+    width: 100%;
+    padding: 0 2rem;
+}   

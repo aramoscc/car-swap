@@ -1,0 +1,9 @@
+.Fondo-img{  
+    background-image: url('/coche-fondo.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 450px;
+    width: 100%;
+}
+

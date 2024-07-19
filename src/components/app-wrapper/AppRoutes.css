@@ -1,0 +1,24 @@
+.App-container{
+    /* max-width: 1200px; */
+}
+
+
+@media (min-width: 1200px){
+    .App-container{
+        display: flex;
+        flex-flow: column nowrap;
+        width: 1200px;
+    }
+}
+
+@media (min-width: 1400px){
+    .App-container{
+        margin-left: 150px;
+    }
+}
+
+@media (min-width: 1600px){
+    .App-container{
+        margin-left: 200px;
+    }
+}

@@ -1,0 +1,58 @@
+
+.FichasTecnicas{
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border-top: 1px solid black;
+    margin-bottom: 4rem;
+}
+.FichasTecnicas-h1{
+    font-size: x-large;
+    padding: 2rem;
+    font-weight: bold;
+    line-height: 2rem;
+}
+.FichasTecnicas-ul{
+    width: 100%;
+    padding: 1rem 1rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 3rem;
+}
+
+
+.MarcaFicha{
+    height: 220px;
+    width: 290px;
+    border-radius: 30px;
+    background: #ffffff;
+    box-shadow:  18px 18px 28px #b8b8b8,
+             -18px -18px 28px #ffffff;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+.MarcaFicha-img{
+    object-fit: contain; 
+    object-position: center;
+}
+.MarcaFicha-h2{
+    font-weight: bold;
+    font-size: larger;
+}
+.MarcaFicha-img-wrapper{
+    height: 160px;
+    width: 160px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.modelo-img{
+    height: 220px;
+    width: 240px;
+}
