@@ -54,12 +54,13 @@
     color: rgba(221, 221, 221, 0.8);
 }
 
-.Version{
+.VersionVenta{
     background-color: rgb(236, 234, 234);
     cursor: pointer;
     transition: background-color .5s ease;
+    padding: .8rem;
 }
-.Version:hover{
+.VersionVenta:hover{
     background-color: rgb(249, 248, 248);
     border: 1px solid rgb(44, 78, 104); 
 }

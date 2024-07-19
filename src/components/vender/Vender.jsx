@@ -33,6 +33,7 @@ export const Vender = () => {
 
     }
 
+    //Funcion para gestionar la visibilidad del desplegable
     const toggleVersiones = () => {
         if(isVisible){
             setIsVisible(false)
@@ -52,9 +53,18 @@ export const Vender = () => {
     useEffect(() => {
 
         getVersionesNombres()
-        setIsVisible(true)
 
     } , [])
+
+
+    //Effecto para poner visible el desplegable cuando obtengas las versiones
+    useEffect(() => {
+
+        if(versiones.length !== 0){
+            setIsVisible(true)
+        }
+
+    } , [versiones])
 
     return(
         <>

@@ -143,8 +143,8 @@
 }
 
 .Desplegable-ul{
-    margin: 1rem;
-    padding: 1rem;
+    /* margin: 1rem; */
+    /* padding: 1rem; */
     background-color:white;
     overflow-y: scroll;
     height: 280px;
@@ -186,6 +186,11 @@
 }
 .Marca{
     cursor: pointer;
+    padding: 1rem 2rem;
+}
+.Marca:hover{
+    background-color: rgb(241, 240, 240);
+    border: 1px solid black;
 }
 
 @media (min-width: 1000px) {

@@ -1,10 +1,22 @@
+import { useContext } from "react"
+import { PublicarContext } from "./Publicar"
 
+export const PublicarDesplegableOpcion = ({id, dato, desplegable}) => {
 
-export const PublicarDesplegableOpcion = ({dato}) => {
+    const {cambiarIdMarca, publicarRef, toggleDesplegable} = useContext(PublicarContext)
 
-    console.log(dato)
+    const seleccionarDato = () => {
+
+        if(desplegable === 'marcas'){
+            const {current : form} = publicarRef
+            form['marca'].value = dato
+            cambiarIdMarca(id)
+            toggleDesplegable(desplegable)
+        }
+
+    }
 
     return(
-        <li className="PublicarDesplegableOpcion">{dato}</li>
+        <li onClick={seleccionarDato} className="PublicarDesplegableOpcion">{dato}</li>
     )
 }

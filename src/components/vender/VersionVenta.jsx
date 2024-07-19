@@ -6,7 +6,7 @@ export const VersionVenta = (props) => {
 
     return(
         <>
-            <li className="Version">{version}</li>
+            <li className="VersionVenta">{version}</li>
         </>
     )
 }

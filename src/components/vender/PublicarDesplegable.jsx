@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { PublicarDesplegableOpcion } from "./PublicarDesplegableOpcion"
 import './PublicarDesplegable.css'
 
+import { PublicarContext } from "./Publicar"
+
 export const PublicarDesplegable = ({desplegable}) => {
 
-    const [marcas, setMarcas] = useState([])
+    const [datosDesplegable, setDatosDesplegable] = useState([])
+
+    const {publicarRef, idMarca, cambiarIdMarca} = useContext(PublicarContext)
 
     //Url obtenida desde el entorno
     const {VITE_HOST} = import.meta.env
 
     //Función asincrona para obtener las marcas desde la api
-    const getMarcas = async () => {
+    const getDatosDesplegable = async (opcion) => {
 
         const controller = new AbortController()
 
@@ -19,9 +23,15 @@ export const PublicarDesplegable = ({desplegable}) => {
             signal : controller.signal
         }
 
-        await fetch(`${VITE_HOST}/marcas` , options)
+        await fetch(`${VITE_HOST}/${opcion}` , options)
         .then(res => res.json())
-        .then(data => setMarcas(data))
+        .then(data => {
+            if(desplegable === 'marcas'){
+                setDatosDesplegable(data)
+            }else{
+                setDatosDesplegable(data)
+            }
+        })
         .catch(err => console.log(err))
         .finally(() => controller.abort())
 
@@ -30,15 +40,20 @@ export const PublicarDesplegable = ({desplegable}) => {
     useEffect(() => {
 
         if(desplegable === 'marcas'){
-            getMarcas()
+            getDatosDesplegable('marcas')
+        }else if(desplegable === 'modelos'){
+            getDatosDesplegable(`modelos/${idMarca}`)
         }
 
     } , [])
 
     return(
         <ul className="PublicarDesplegable">
-            {marcas?.length !== 0 && marcas?.map(marca => 
-                <PublicarDesplegableOpcion dato={marca.marca} />
+            {datosDesplegable?.length !== 0 && datosDesplegable?.map(marca => 
+                <PublicarDesplegableOpcion key={marca._id} id={marca._id} dato={marca.marca} desplegable={desplegable} />
+            )}
+            {desplegable === 'modelos' && datosDesplegable?.length !== 0 &&datosDesplegable?.map(modelo=>
+                <PublicarDesplegableOpcion key={modelo._id} dato={modelo.modelo} />
             )}
         </ul>
     )
