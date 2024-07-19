@@ -22,7 +22,7 @@ export const DesplegableMarcas = ({isVisebleMarcas}) => {
             signal : controller.signal
         }
 
-        await fetch(`${VITE_HOST}/marcas` , options)
+        await fetch(`${VITE_HOST}/fichas-tecnicas/marcas` , options)
         .then(res => res.json())
         .then(data => setMarcas(data))
         .catch(err => console.log(err))

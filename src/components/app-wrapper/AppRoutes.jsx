@@ -8,6 +8,7 @@ import { ModeloFichasTecnicas } from '../fichas-tecnicas/ModeloFichasTecnicas'
 import { VersionFichasTecnicas } from '../fichas-tecnicas/VersionFichasTecnicas'
 import { Vender } from '../vender/Vender'
 import { Publicar } from '../vender/Publicar'
+import { Anuncios } from '../anuncios/Anuncios'
 
 //Componente para definir las rutas de la aplicación
 export const AppRoutes = () => {
@@ -27,6 +28,7 @@ export const AppRoutes = () => {
                 <Route path='/fichas-tecnicas/versiones' element={<VersionFichasTecnicas />} />
                 <Route path='/vender' element={<Vender />} />
                 <Route path='/publicar' element={<Publicar />} />
+                <Route path='/anuncios' element={<Anuncios />} />
             </Routes>
 
         </div>

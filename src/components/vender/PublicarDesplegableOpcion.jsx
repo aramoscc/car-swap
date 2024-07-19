@@ -3,20 +3,53 @@ import { PublicarContext } from "./Publicar"
 
 export const PublicarDesplegableOpcion = ({id, dato, desplegable}) => {
 
-    const {cambiarIdMarca, publicarRef, toggleDesplegable} = useContext(PublicarContext)
+    const {cambiarIdMarca, publicarRef, toggleDesplegable, habilitarModelo} = useContext(PublicarContext)
 
     const seleccionarDato = () => {
 
-        if(desplegable === 'marcas'){
-            const {current : form} = publicarRef
-            form['marca'].value = dato
-            cambiarIdMarca(id)
-            toggleDesplegable(desplegable)
+        const {current : form} = publicarRef
+
+        switch (desplegable) {
+            case 'marcas':
+                form['marca'].value = dato
+                form['modelo'].value = ''
+                cambiarIdMarca(id)
+                toggleDesplegable(desplegable)
+                habilitarModelo()
+                break;
+            case 'modelos':
+                form['modelo'].value = dato
+                toggleDesplegable(desplegable)
+                break;
+            case 'colores':
+                form['color'].value = dato
+                toggleDesplegable(desplegable)
+                break;
+            case 'etiquetas':
+                form['etiqueta'].value = dato
+                toggleDesplegable(desplegable)
+                break;
+            case 'combustibles':
+                form['combustible'].value = dato
+                toggleDesplegable(desplegable)
+                break;
+            case 'cambios':
+                form['cambio'].value = dato
+                toggleDesplegable(desplegable)
+                break;
+            case 'carrocerias':
+                form['carroceria'].value = dato
+                toggleDesplegable(desplegable)
+                break;
+            default:
+                break;
         }
 
     }
 
     return(
-        <li onClick={seleccionarDato} className="PublicarDesplegableOpcion">{dato}</li>
+        <>
+        {dato !== '' && <li onClick={seleccionarDato} className="PublicarDesplegableOpcion">{dato}</li>}
+        </>
     )
 }

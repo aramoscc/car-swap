@@ -217,4 +217,8 @@
     .KmPrecio{
         top: 240px;
     }
+    .fondo-blanco{
+        width:0;
+        height: 0;
+    }
 }

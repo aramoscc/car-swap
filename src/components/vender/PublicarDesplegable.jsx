@@ -4,16 +4,22 @@ import './PublicarDesplegable.css'
 
 import { PublicarContext } from "./Publicar"
 
+//Componente del desplegable
 export const PublicarDesplegable = ({desplegable}) => {
 
+    //Estado para guardar los datos de desplegable seleccionado
     const [datosDesplegable, setDatosDesplegable] = useState([])
 
-    const {publicarRef, idMarca, cambiarIdMarca} = useContext(PublicarContext)
+    //Estado para guardar los datos de modelos
+    const [modelos, setModelos] = useState([])
+
+    //Obtenemos el IdMarca de PublicarContext para mostrar los modelos adecuados
+    const {idMarca} = useContext(PublicarContext)
 
     //Url obtenida desde el entorno
     const {VITE_HOST} = import.meta.env
 
-    //Función asincrona para obtener las marcas desde la api
+    //Función asincrona para obtener los datos del desplegable desde la api
     const getDatosDesplegable = async (opcion) => {
 
         const controller = new AbortController()
@@ -26,8 +32,8 @@ export const PublicarDesplegable = ({desplegable}) => {
         await fetch(`${VITE_HOST}/${opcion}` , options)
         .then(res => res.json())
         .then(data => {
-            if(desplegable === 'marcas'){
-                setDatosDesplegable(data)
+            if(desplegable === 'modelos'){
+                setModelos(data)
             }else{
                 setDatosDesplegable(data)
             }
@@ -37,23 +43,27 @@ export const PublicarDesplegable = ({desplegable}) => {
 
     }
 
+    //Efecto para llamar a getDatosDesplegable y establecer el id de la marca seleccionada si nos encontramos en modelos
     useEffect(() => {
-
-        if(desplegable === 'marcas'){
-            getDatosDesplegable('marcas')
-        }else if(desplegable === 'modelos'){
+            
+        if(desplegable === 'modelos'){
             getDatosDesplegable(`modelos/${idMarca}`)
+        }else{
+            getDatosDesplegable(desplegable)
         }
 
     } , [])
 
     return(
         <ul className="PublicarDesplegable">
-            {datosDesplegable?.length !== 0 && datosDesplegable?.map(marca => 
+            {desplegable === 'marcas' && datosDesplegable?.length !== 0 && datosDesplegable?.map(marca => 
                 <PublicarDesplegableOpcion key={marca._id} id={marca._id} dato={marca.marca} desplegable={desplegable} />
             )}
-            {desplegable === 'modelos' && datosDesplegable?.length !== 0 &&datosDesplegable?.map(modelo=>
-                <PublicarDesplegableOpcion key={modelo._id} dato={modelo.modelo} />
+            {desplegable === 'modelos' && modelos?.length !== 0 && modelos?.map(modelo=>
+                <PublicarDesplegableOpcion key={modelo._id} dato={modelo.modelo} desplegable={desplegable} />
+            )}
+            {desplegable !== 'marcas' && datosDesplegable?.length !== 0 && datosDesplegable?.map(dato => 
+                <PublicarDesplegableOpcion key={dato._id} dato={dato.nombre} desplegable={desplegable} />
             )}
         </ul>
     )

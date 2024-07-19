@@ -39,10 +39,11 @@
 }
 
 .Wrapper-desplegable{
-    width: 60px;
-    height: 60px;
-    border-radius: 3rem;
+    width: 40px;
+    height: 40px;
+    /* border-radius: 3rem; */
     cursor: pointer;
+    margin-left: .5rem;
 }
 .Wrapper-logo{
     color: #001e3e;

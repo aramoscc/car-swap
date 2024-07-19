@@ -34,7 +34,9 @@ export const MenuOption = (props) => {
                 break;
             case 'Favoritos':
                 if(isLogged()){
-                    console.log('hola')
+                    const mensaje = 'favoritos'
+                    navigate('/anuncios', { state: {mensaje}})
+                    toggleMenu()
                 }else{
                     goToLogin()
                 }
@@ -48,7 +50,9 @@ export const MenuOption = (props) => {
                 break;
             case 'Anuncios':
                 if(isLogged()){
-
+                    const mensaje = 'mios'
+                    navigate('/anuncios', { state: {mensaje}})
+                    toggleMenu()
                 }else{
                     goToLogin()
                 }

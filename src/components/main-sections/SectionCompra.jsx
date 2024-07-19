@@ -5,6 +5,7 @@ import { CompraVenta } from './CompraVenta'
 import { DesplegableMarcas } from './DesplegableMarcas'
 import { DesplegableKmPrecio } from './DesplegableKmPrecio'
 import { FondoImagen } from '../fondo-img/FondoImagen'
+import { useNavigate } from 'react-router-dom'
 
 //Contexto para pasar las funciones que gestionan el texto de los filtros y la visibilidad de los desplegables 
 export const TextoFiltroContext = createContext()
@@ -23,6 +24,8 @@ export const SectionCompra = () => {
     const [textoKm, setTextoKm] = useState('')
     //Estado para modificar el texto del filtro de precios
     const [textoPrecio, setTextoPrecio] = useState('')
+
+    const navigate = useNavigate()
 
     
     //Funcion para gestionar la visibilidad de las marcas
@@ -117,6 +120,11 @@ export const SectionCompra = () => {
 
     }
 
+    const mostrarAnuncios = () => {
+        const mensaje = textoMarca
+        navigate('/anuncios', { state: {mensaje}})
+    }
+
     //Efecto para establecer el texto inicial de los filtros
     useEffect(() => {
 
@@ -142,7 +150,7 @@ export const SectionCompra = () => {
                 <div className="Compra-venta-wrapper">
                     <div className="Selection-wrapper">
                         <CompraVenta option={'Comprar'} />
-                        <CompraVenta option={'Venta'} />
+                        {/* <CompraVenta option={'Venta'} /> */}
                     </div>        
                     <div className="Compra-filtros">
                         <FiltroCompra textoFiltro={textoMarca} toggleFiltro={toggleMarcas} decoradorFiltro={''}/> 
@@ -150,7 +158,7 @@ export const SectionCompra = () => {
                             <FiltroCompra textoFiltro={textoKm} toggleFiltro={toggleKmPrecio} decoradorFiltro={'km'}/> 
                             <FiltroCompra textoFiltro={textoPrecio} toggleFiltro={toggleKmPrecio} decoradorFiltro={'precio'}/> 
                         </div>
-                        <button  className="Compra-btn">Mostrar resultados</button>
+                        <button onClick={mostrarAnuncios} className="Compra-btn">Mostrar resultados</button>
                     </div>     
                 </div>
                 <TextoFiltroContext.Provider value={{cambiarTextoFiltro, toggleMarcas, toggleKmPrecio, quitarFiltro}}>

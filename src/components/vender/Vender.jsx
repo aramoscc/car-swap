@@ -9,6 +9,8 @@ export const Vender = () => {
     //Estado para guardar las versiones
     const [versiones, setVersiones] = useState([])
 
+    const [ficha, setFicha] = useState()
+
     //Estado para determinar la visibilidad del desplegable
     const [isVisible, setIsVisible] =  useState(false)
 

@@ -62,7 +62,8 @@ export const Header = () => {
     //mediante el estado isLogged
     useEffect(() => {
 
-        if(idUser === ''){
+        const idUsuario = JSON.parse(localStorage.getItem('idUsuario'))
+        if(idUsuario === ''){
             setIsLogged(false)
         }else{
             setIsLogged(true)

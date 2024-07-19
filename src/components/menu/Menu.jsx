@@ -9,6 +9,8 @@ export const Menu = () => {
 
     //Estado para guerdar los datos del menú
     const [menu, setMenu] = useState([])
+    //Estado para saber si estas logeado
+    const [isLogged, setIsLogged] = useState(false)
 
     //Estados obtenidos del contexto de Header.jsx y App.jsx
     const {idUser} = useContext(IdUsuarioContext)
@@ -39,10 +41,10 @@ export const Menu = () => {
     //para obtener los datos del menu dependiendo si estas logeado o no
     useEffect(() => {
 
-        if(idUser === ''){
+        const idUsuario = JSON.parse(localStorage.getItem('idUsuario'))
+        if(idUsuario === ''){
             getMenu(false)
         }else{
-            console.log('hola')
             getMenu(true)
         }
     } , [idUser])

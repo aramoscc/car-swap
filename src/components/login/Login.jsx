@@ -176,8 +176,7 @@ export const Login = () => {
         const options = {
             method : 'post',
             headers : {"Content-type" : "application/json"},
-            body : JSON.stringify(usuario),
-            signal : controller.signal
+            body : JSON.stringify(usuario)
         }
 
         await fetch(`${VITE_HOST}/login` , options)
@@ -208,7 +207,7 @@ export const Login = () => {
             setSubmitValue('Crear cuenta')
             setTextoBtn('¿Ya tienes una cuenta?')
         }else{
-            // console.log('hola')
+            
         }
 
         esconderAccederLogin(true)

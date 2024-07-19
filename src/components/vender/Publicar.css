@@ -57,3 +57,11 @@
     color: rgb(191, 191, 191);
     background-color: rgb(44, 44, 129);
 }
+
+.Error-publicar{
+    color: rgb(255, 105, 105);
+    font-size: larger;
+    padding: 0 2.5rem;
+    margin-top: -.8rem;
+    margin-bottom: .5rem;
+}

@@ -1,0 +1,92 @@
+
+.Anuncios{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
+    border-top: 1px solid black;
+    padding: 2rem ;
+}
+.Anuncios-h1{
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: xx-large;
+    padding: 1rem;
+}
+.Anuncios-ul{
+    width: 100%;
+    /* padding: 1rem 1rem 4rem; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.Anuncio{
+    background-color: rgb(234, 234, 234);
+    padding: 1rem;
+    border-radius: .5rem;
+    max-width: 400px;
+    border: 2px solid rgba(16, 16, 71, 0.577);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: left;
+}
+.Anuncio-img-wrapper{
+    margin: .5rem;
+    background-color: rgba(239, 239, 251, 0.5);
+    border-radius: 5px;
+}
+.Anuncio-img{
+    object-fit: contain;
+    object-position: center;
+}
+.Anuncio-info{
+    padding: 2rem .5rem;
+    width: 100%;
+}
+
+.Info-precio{
+    font-size: xx-large;
+    padding: .5rem 0;
+    color: rgb(3, 3, 70);
+    font-weight: bold;
+}
+.Info-titulo{
+    display: flex;
+    gap: .5rem;
+    margin: 1rem 0;
+}
+.Info-titulo-span{
+    font-size: x-large;
+    font-weight: bold;
+}
+.Info-features{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* background-color: blueviolet; */
+    gap: .5rem;
+}
+.Info-features-span{
+
+}
+.Anuncio-btn{
+    
+    border: 3px solid rgb(95, 149, 190);
+    width: 80%;
+    padding: 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    transition: background-color .5s ease;
+}
+.Anuncio-btn:hover{
+    background-color: rgb(95, 149, 190);
+    border: 3px solid rgb(35, 63, 84);
+}
